@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Content Widgets
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Widget\Model\Widget">
+        <plugin name="content-widget-imagefix" type="Augustash\ContentWidgets\Plugin\FixImageChooserUrlPlugin" sortOrder="10" disabled="false"/>
+    </type>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\Category" type="Augustash\ContentWidgets\Block\Widget\Callout\Link">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\Product" type="Augustash\ContentWidgets\Block\Widget\Callout\Link">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CategoryPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\ProductPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CustomPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion"/>
+</config>

@@ -1,0 +1,23 @@
+{
+    "name": "augustash/module-content-widgets",
+    "description": "A collection of useful Magento 2 content widgets.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "magento/framework": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Augustash\\ContentWidgets\\": ""
+        }
+    }
+}

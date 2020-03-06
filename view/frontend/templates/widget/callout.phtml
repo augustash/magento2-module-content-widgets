@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Content Widgets
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ */
+
+/** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+?>
+<div class="callout-widget callout-<?= $block->escapeHtmlAttr($block->getDisplayMode()) ?>">
+    <div class="callout-wrapper">
+        <div class="callout-image">
+            <img src="<?= /* @noEscape */ $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getLabel()) ?>" />
+        </div>
+        <div class="callout-content">
+            <?php if ($block->getSubtitle()) : ?>
+                <div class="callout-subtitle">
+                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                </div>
+            <?php endif; ?>
+            <div class="callout-header">
+                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+            </div>
+            <p class="callout-text">
+                <?= $block->escapeHtml($block->getDescription()) ?>
+            </p>
+            <div class="callout-buttons">
+                <div class="callout-primary">
+                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
