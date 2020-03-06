@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Content Widgets
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ */
+
+/** @var \Augustash\ContentWidgets\Block\Widget\Callout\Promotion $block */
+
+$additionalCssClasses = $block->getClass();
+$additionalCssClasses .= 'promotion-' . $block->getDisplayMode();
+$additionalCssClasses .= $block->getImage() ? ' with-image' : ' no-image';
+$additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
+$block->setClass(trim($additionalCssClasses));
+?>
+<a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
+    <div class="promotion-callout-widget <?= $block->escapeHtmlAttr($additionalCssClasses) ?>">
+        <div class="promotion-callout-wrapper">
+            <?php if ($block->getShowBadge()) : ?>
+                <div class="promotion-callout-badge">
+                    <span class="promotion-badge-label"><?= $block->escapeHtml($block->getBadgeLabel()) ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($block->getImage()) : ?>
+                <div class="promotion-callout-image">
+                    <img src="<?= /* @noEscape */ $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getHeading()) ?>" />
+                </div>
+            <?php endif; ?>
+            <div class="promotion-callout-content">
+                <div class="promotion-callout-header">
+                    <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+                </div>
+                <?php if ($block->getDescription()) : ?>
+                    <p class="promotion-callout-text">
+                        <?= $block->escapeHtml($block->getDescription()) ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</a>

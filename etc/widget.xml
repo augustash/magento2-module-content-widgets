@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Content Widgets
+ *
+ * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="widget_cms_callout" class="Augustash\ContentWidgets\Block\Widget\Callout\Cms">
+        <label translate="true">Featured Callout (CMS)</label>
+        <description translate="true">Displays a content feature to highlight a specific CMS page.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" required="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <description translate="true">The image should have a max height of roughly 400px.</description>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image on the left or right. Defaults to left.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the page title here.</description>
+            </parameter>
+            <parameter name="page_id" xsi:type="block" visible="true" required="true" sort_order="60">
+                <label translate="true">CMS Page</label>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Page...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_category_callout" class="Augustash\ContentWidgets\Block\Widget\Callout\Category">
+        <label translate="true">Featured Callout (Category)</label>
+        <description translate="true">Displays a content feature to highlight a specific category page.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" required="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <description translate="true">The image should have a max height of roughly 400px.</description>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image on the left or right. Defaults to left.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the category name here.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="60">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_product_callout" class="Augustash\ContentWidgets\Block\Widget\Callout\Product">
+        <label translate="true">Featured Callout (Product)</label>
+        <description translate="true">Displays a content feature to highlight a specific product page.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" required="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <description translate="true">The image should have a max height of roughly 400px.</description>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image on the left or right. Defaults to left.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the product name here.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="60">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_category_promotion" class="Augustash\ContentWidgets\Block\Widget\Callout\CategoryPromotion">
+        <label translate="true">Featured Promotion (Category)</label>
+        <description translate="true">Displays a content promotion to highlight a specific category page.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Promotion">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image in the center or as the background. Defaults to center.</description>
+            </parameter>
+            <parameter name="badge_label" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Badge Label</label>
+                <description translate="true">Label used for special badge. Default is 'Special'.</description>
+            </parameter>
+            <parameter name="show_badge" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Badge</label>
+                <description translate="true">Show special badge.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="80">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_product_promotion" class="Augustash\ContentWidgets\Block\Widget\Callout\ProductPromotion">
+        <label translate="true">Featured Promotion (Product)</label>
+        <description translate="true">Displays a content promotion to highlight a specific product page.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Promotion">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image in the center or as the background. Defaults to center.</description>
+            </parameter>
+            <parameter name="badge_label" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Badge Label</label>
+                <description translate="true">Label used for special badge. Default is 'Special'.</description>
+            </parameter>
+            <parameter name="show_badge" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Badge</label>
+                <description translate="true">Show special badge.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="80">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_custom_promotion" class="Augustash\ContentWidgets\Block\Widget\Callout\CustomPromotion">
+        <label translate="true">Featured Promotion (Custom URL)</label>
+        <description translate="true">Displays a content promotion to highlight a custom URL.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Promotion">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image in the center or as the background. Defaults to center.</description>
+            </parameter>
+            <parameter name="badge_label" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Badge Label</label>
+                <description translate="true">Label used for special badge. Default is 'Special'.</description>
+            </parameter>
+            <parameter name="show_badge" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show Badge</label>
+                <description translate="true">Show special badge.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="href" xsi:type="text" visible="true" required="true" sort_order="80">
+                <label translate="true">Custom URL</label>
+                <description translate="true">The fully-qualified URL you want the customer to be directed to.</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
