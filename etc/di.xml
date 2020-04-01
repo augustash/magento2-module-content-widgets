@@ -36,5 +36,9 @@
         </arguments>
     </virtualType>
 
-    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CustomPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion"/>
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CustomPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">null</argument>
+        </arguments>
+    </virtualType>
 </config>
