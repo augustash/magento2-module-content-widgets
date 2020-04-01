@@ -39,13 +39,13 @@ class Link extends AbstractCallout
      * Initialize class dependencies.
      *
      * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Magento\Catalog\Model\ResourceModel\AbstractResource $entityResource
+     * @param \Magento\Catalog\Model\ResourceModel\AbstractResource|null $entityResource
      * @param \Magento\UrlRewrite\Model\UrlFinderInterface $urlFinder
      * @param array $data
      */
     public function __construct(
         Context $context,
-        AbstractResource $entityResource,
+        $entityResource,
         UrlFinderInterface $urlFinder,
         array $data = []
     ) {
