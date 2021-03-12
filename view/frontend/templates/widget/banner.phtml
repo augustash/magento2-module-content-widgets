@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * Content Widgets
+ *
+ * @author    Josh Johnson <josh@augustash.com>
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
+ */
+
+/** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$additionalCssClasses = 'banner-' . $block->getDisplayMode();
+$additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
+?>
+<div class="banner-widget <?= $block->escapeHtmlAttr($additionalCssClasses) ?>">
+    <div class="banner-wrapper">
+        <div class="banner-image">
+            <?php
+                $largeImageUrl = $block->getLargeImage();
+                $mediumImageUrl = $block->getMediumImage();
+                $smallImageUrl = $block->getSmallImage();
+                $alt = $block->escapeHtml($block->getLabel())
+            ?>
+            <picture>
+                <source type="image/jpeg" media="(max-width: 320px)" srcset="<?= $block->escapeUrl($smallImageUrl) ?>">
+                <source type="image/jpeg" media="(max-width: 799px)" srcset="<?= $block->escapeUrl($mediumImageUrl) ?>">
+                <source type="image/jpeg" media="(min-width: 800px)" srcset="<?= $block->escapeUrl($largeImageUrl) ?>">
+                <img src="<?= $block->escapeUrl($largeImageUrl) ?>" alt="<?= $block->escapeHtmlAttr($alt) ?>" loading="lazy" />
+            </picture>
+        </div>
+        <div class="banner-content <?= $block->escapeHtmlAttr($block->getMobileContentPosition()) ?>">
+            <div class="banner-header">
+                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+            </div>
+
+            <?php if ($block->getSubtitle()): ?>
+                <div class="banner-subtitle">
+                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($block->getDescription()): ?>
+                <p class="banner-text">
+                    <?= $block->escapeHtml($block->getDescription()) ?>
+                </p>
+            <?php endif; ?>
+            <div class="banner-buttons">
+                <div class="banner-primary">
+                    <a class="action primary" <?= /* @noEscape */ $block->getLinkAttributes() ?>>
+                        <span><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

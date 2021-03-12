@@ -8,11 +8,12 @@
  */
 
 /** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Magento\Framework\Escaper $escaper */
 ?>
 <div class="callout-widget callout-<?= $block->escapeHtmlAttr($block->getDisplayMode()) ?>">
     <div class="callout-wrapper">
         <div class="callout-image">
-            <img src="<?= /* @noEscape */ $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getLabel()) ?>" />
+            <img src="<?= $block->escapeUrl($block->getImage()) ?>" alt="<?= $block->escapeHtml($block->getLabel()) ?>" />
         </div>
         <div class="callout-content">
             <?php if ($block->getSubtitle()) : ?>

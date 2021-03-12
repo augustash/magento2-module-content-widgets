@@ -8,6 +8,7 @@
  */
 
 /** @var \Augustash\ContentWidgets\Block\Widget\Callout\Promotion $block */
+/** @var \Magento\Framework\Escaper $escaper */
 
 $additionalCssClasses = $block->getClass();
 $additionalCssClasses .= 'promotion-' . $block->getDisplayMode();
@@ -25,7 +26,7 @@ $block->setClass(trim($additionalCssClasses));
             <?php endif; ?>
             <?php if ($block->getImage()) : ?>
                 <div class="promotion-callout-image">
-                    <img src="<?= /* @noEscape */ $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getHeading()) ?>" />
+                    <img src="<?= $block->escapeUrl($block->getImage()) ?>" alt="<?= $block->escapeHtml($block->getHeading()) ?>" />
                 </div>
             <?php endif; ?>
             <div class="promotion-callout-content">
