@@ -10,7 +10,7 @@
         "sort-packages": true
     },
     "require": {
-        "magento/framework": "*"
+        "magento/framework": ">=102.0"
     },
     "autoload": {
         "files": [

@@ -8,8 +8,12 @@
  */
 
 /** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$additionalCssClasses = 'banner-' . $block->getDisplayMode();
+$additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
 ?>
-<div class="banner-widget banner-<?= $block->escapeHtmlAttr($block->getDisplayMode()) ?>">
+<div class="banner-widget <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
     <div class="banner-wrapper">
         <div class="banner-image">
             <?php
@@ -18,35 +22,34 @@
                 $smallImageUrl = $block->getSmallImage();
                 $alt = $block->escapeHtml($block->getLabel())
             ?>
-            <img srcset="<?= /* @noEscape */ $largeImageUrl ?>  1280w,
-                    <?= /* @noEscape */ $mediumImageUrl ?> 640w,
-                    <?= /* @noEscape */ $smallImageUrl ?> 320w,
-                sizes="(min-width: 36em) 33.3vw,
-                    100vw"
-                src="<?= /* @noEscape */ $largeImageUrl ?> "
-                alt="<?= $block->escapeHtmlAttr($alt) ?>"
+            <img srcset="<?= $escaper->escapeUrl($largeImageUrl) ?> 1280w,
+                    <?= $escaper->escapeUrl($mediumImageUrl) ?> 640w,
+                    <?= $escaper->escapeUrl($smallImageUrl) ?> 320w"
+                sizes="(min-width: 36em) 33.3vw, 100vw"
+                src="<?= $escaper->escapeUrl($largeImageUrl) ?> "
+                alt="<?= $escaper->escapeHtmlAttr($alt) ?>"
                 loading="lazy" />
         </div>
         <div class="banner-content">
             <div class="banner-header">
-                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+                <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
             </div>
 
-            <?php if ($block->getSubtitle()) : ?>
+            <?php if ($block->getSubtitle()): ?>
                 <div class="banner-subtitle">
-                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                    <em><?= $escaper->escapeHtml($block->getSubtitle()) ?></em>
                 </div>
             <?php endif; ?>
 
-            <?php if ($block->getDescription()) : ?>
+            <?php if ($block->getDescription()): ?>
                 <p class="banner-text">
-                    <?= $block->escapeHtml($block->getDescription()) ?>
+                    <?= $escaper->escapeHtml($block->getDescription()) ?>
                 </p>
             <?php endif; ?>
             <div class="banner-buttons">
                 <div class="banner-primary">
-                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
-                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <span class="action primary"><?= $escaper->escapeHtml($block->getLabel()) ?></span>
                     </a>
                 </div>
             </div>

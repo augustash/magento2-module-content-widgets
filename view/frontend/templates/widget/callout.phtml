@@ -8,28 +8,29 @@
  */
 
 /** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Magento\Framework\Escaper $escaper */
 ?>
-<div class="callout-widget callout-<?= $block->escapeHtmlAttr($block->getDisplayMode()) ?>">
+<div class="callout-widget callout-<?= $escaper->escapeHtmlAttr($block->getDisplayMode()) ?>">
     <div class="callout-wrapper">
         <div class="callout-image">
-            <img src="<?= /* @noEscape */ $block->getImage() ?>" alt="<?= $block->escapeHtml($block->getLabel()) ?>" />
+            <img src="<?= $escaper->escapeUrl($block->getImage()) ?>" alt="<?= $escaper->escapeHtml($block->getLabel()) ?>" />
         </div>
         <div class="callout-content">
             <?php if ($block->getSubtitle()) : ?>
                 <div class="callout-subtitle">
-                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                    <em><?= $escaper->escapeHtml($block->getSubtitle()) ?></em>
                 </div>
             <?php endif; ?>
             <div class="callout-header">
-                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+                <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
             </div>
             <p class="callout-text">
-                <?= $block->escapeHtml($block->getDescription()) ?>
+                <?= $escaper->escapeHtml($block->getDescription()) ?>
             </p>
             <div class="callout-buttons">
                 <div class="callout-primary">
-                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
-                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <span class="action primary"><?= $escaper->escapeHtml($block->getLabel()) ?></span>
                     </a>
                 </div>
             </div>
