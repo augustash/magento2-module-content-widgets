@@ -6,7 +6,7 @@
 
 ## Overview
 
-The `Augustash_ContentWidgets` module is offers some fairly standard content call-out and promotional widgets for a Magento website.
+The `Augustash_ContentWidgets` module offers some fairly standard content call-out and promotional widgets for a Magento website.
 
 ## Installation
 
