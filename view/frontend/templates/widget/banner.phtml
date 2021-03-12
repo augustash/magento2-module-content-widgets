@@ -24,8 +24,8 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
             ?>
             <picture>
                 <source type="image/jpeg" media="(max-width: 320px)" srcset="<?= $block->escapeUrl($smallImageUrl) ?>">
-                <source type="image/jpeg" media="(max-width: 799px)" srcset="<?= $block->escapeUrl($mediumImageUrl) ?>">
-                <source type="image/jpeg" media="(min-width: 800px)" srcset="<?= $block->escapeUrl($largeImageUrl) ?>">
+                <source type="image/jpeg" media="(max-width: 767px)" srcset="<?= $block->escapeUrl($mediumImageUrl) ?>">
+                <source type="image/jpeg" media="(min-width: 768px)" srcset="<?= $block->escapeUrl($largeImageUrl) ?>">
                 <img src="<?= $block->escapeUrl($largeImageUrl) ?>" alt="<?= $block->escapeHtmlAttr($alt) ?>" loading="lazy" />
             </picture>
         </div>
