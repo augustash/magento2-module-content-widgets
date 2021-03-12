@@ -16,7 +16,7 @@ Install the extension files directly into the project source:
 
 ```bash
 mkdir -p app/code/Augustash/ContentWidgets/
-curl -Ss https://github.com/augustash/magento2-module-content-widgets/archive/1.0.2.tar.gz | tar xf - --strip 1 -C app/code/Augustash/ContentWidgets/
+curl -Ss https://github.com/augustash/magento2-module-content-widgets/archive/1.1.0.tar.gz | tar xf - --strip 1 -C app/code/Augustash/ContentWidgets/
 bin/magento module:enable --clear-static-content Augustash_ContentWidgets
 bin/magento setup:upgrade
 bin/magento cache:flush
@@ -27,8 +27,8 @@ bin/magento cache:flush
 Install the extension using Composer using our development package repository:
 
 ```bash
-composer config repositories.augustash composer https://packages.augustash.com/repo/private
-composer require augustash/module-content-widgets:~1.0.2
+composer config repositories.augustash composer https://augustash.repo.repman.io
+composer require augustash/module-content-widgets:~1.1.0
 bin/magento module:enable --clear-static-content Augustash_ContentWidgets
 bin/magento setup:upgrade
 bin/magento cache:flush
