@@ -107,6 +107,17 @@ class Banner extends ParentCallout
     }
 
     /**
+     * Return preference for how the content should be positioned on mobile
+     * or small devices (i.e., 'overlay-image' or 'stacked-below-image').
+     *
+     * @return string
+     */
+    public function getMobileContentPosition()
+    {
+        return $this->getData('mobile_content_position');
+    }
+
+    /**
      * Return the URL to the pub/media directory
      *
      * @return string

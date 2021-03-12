@@ -288,7 +288,7 @@
         <label translate="true">Featured Banner (Category)</label>
         <description translate="true">Displays a banner that links to a Category.</description>
         <parameters>
-            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="large_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Large Image (width: 1280 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -298,7 +298,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -308,7 +308,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -340,6 +340,10 @@
                 <label translate="true">Invert Colors</label>
                 <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
             </parameter>
+            <parameter name="mobile_content_position" xsi:type="select" visible="true" sort_order="70" source_model="Augustash\ContentWidgets\Model\Config\Source\MobileContentPosition">
+                <label translate="true">Mobile Content Position</label>
+                <description translate="true">Choose where the banner content will be positioned on mobile/small devices. If you're small image has a height less than 320 px you should set this to "Stacked below image" instead of "Overlay on top of image" </description>
+            </parameter>
             <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="80">
                 <label translate="true">Category</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
@@ -356,7 +360,7 @@
         <label translate="true">Featured Banner (Product)</label>
         <description translate="true">Displays a banner that links to a Product.</description>
         <parameters>
-            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="large_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Large Image (width: 1280 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -366,7 +370,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -376,7 +380,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -407,6 +411,10 @@
             <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Invert Colors</label>
                 <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="mobile_content_position" xsi:type="select" visible="true" sort_order="70" source_model="Augustash\ContentWidgets\Model\Config\Source\MobileContentPosition">
+                <label translate="true">Mobile Content Position</label>
+                <description translate="true">Choose where the banner content will be positioned on mobile/small devices. If you're small image has a height less than 320 px you should set this to "Stacked below image" instead of "Overlay on top of image" </description>
             </parameter>
             <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="60">
                 <label translate="true">Product</label>
@@ -424,7 +432,7 @@
         <label translate="true">Featured Banner (Custom URL)</label>
         <description translate="true">Displays a banner that links to a custom URL.</description>
         <parameters>
-            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="large_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Large Image (width: 1280 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -434,7 +442,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -444,7 +452,7 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -475,6 +483,10 @@
             <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Invert Colors</label>
                 <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="mobile_content_position" xsi:type="select" visible="true" sort_order="70" source_model="Augustash\ContentWidgets\Model\Config\Source\MobileContentPosition">
+                <label translate="true">Mobile Content Position</label>
+                <description translate="true">Choose where the banner content will be positioned on mobile/small devices. If you're small image has a height less than 320 px you should set this to "Stacked below image" instead of "Overlay on top of image" </description>
             </parameter>
             <parameter name="href" xsi:type="text" visible="true" required="true" sort_order="80">
                 <label translate="true">Custom URL</label>

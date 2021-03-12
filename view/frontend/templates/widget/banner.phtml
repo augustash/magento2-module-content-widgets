@@ -22,15 +22,14 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
                 $smallImageUrl = $block->getSmallImage();
                 $alt = $block->escapeHtml($block->getLabel())
             ?>
-            <img srcset="<?= $block->escapeUrl($largeImageUrl) ?> 1280w,
-                    <?= $block->escapeUrl($mediumImageUrl) ?> 640w,
-                    <?= $block->escapeUrl($smallImageUrl) ?> 320w"
-                sizes="(min-width: 36em) 33.3vw, 100vw"
-                src="<?= $block->escapeUrl($largeImageUrl) ?> "
-                alt="<?= $block->escapeHtmlAttr($alt) ?>"
-                loading="lazy" />
+            <picture>
+                <source type="image/jpeg" media="(max-width: 320px)" srcset="<?= $block->escapeUrl($smallImageUrl) ?>">
+                <source type="image/jpeg" media="(max-width: 799px)" srcset="<?= $block->escapeUrl($mediumImageUrl) ?>">
+                <source type="image/jpeg" media="(min-width: 800px)" srcset="<?= $block->escapeUrl($largeImageUrl) ?>">
+                <img src="<?= $block->escapeUrl($largeImageUrl) ?>" alt="<?= $block->escapeHtmlAttr($alt) ?>" loading="lazy" />
+            </picture>
         </div>
-        <div class="banner-content">
+        <div class="banner-content <?= $block->escapeHtmlAttr($block->getMobileContentPosition()) ?>">
             <div class="banner-header">
                 <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
             </div>
@@ -48,8 +47,8 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
             <?php endif; ?>
             <div class="banner-buttons">
                 <div class="banner-primary">
-                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
-                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    <a class="action primary" <?= /* @noEscape */ $block->getLinkAttributes() ?>>
+                        <span><?= $block->escapeHtml($block->getLabel()) ?></span>
                     </a>
                 </div>
             </div>
