@@ -13,7 +13,7 @@
 $additionalCssClasses = 'banner-' . $block->getDisplayMode();
 $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
 ?>
-<div class="banner-widget <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
+<div class="banner-widget <?= $block->escapeHtmlAttr($additionalCssClasses) ?>">
     <div class="banner-wrapper">
         <div class="banner-image">
             <?php
@@ -22,34 +22,34 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
                 $smallImageUrl = $block->getSmallImage();
                 $alt = $block->escapeHtml($block->getLabel())
             ?>
-            <img srcset="<?= $escaper->escapeUrl($largeImageUrl) ?> 1280w,
-                    <?= $escaper->escapeUrl($mediumImageUrl) ?> 640w,
-                    <?= $escaper->escapeUrl($smallImageUrl) ?> 320w"
+            <img srcset="<?= $block->escapeUrl($largeImageUrl) ?> 1280w,
+                    <?= $block->escapeUrl($mediumImageUrl) ?> 640w,
+                    <?= $block->escapeUrl($smallImageUrl) ?> 320w"
                 sizes="(min-width: 36em) 33.3vw, 100vw"
-                src="<?= $escaper->escapeUrl($largeImageUrl) ?> "
-                alt="<?= $escaper->escapeHtmlAttr($alt) ?>"
+                src="<?= $block->escapeUrl($largeImageUrl) ?> "
+                alt="<?= $block->escapeHtmlAttr($alt) ?>"
                 loading="lazy" />
         </div>
         <div class="banner-content">
             <div class="banner-header">
-                <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
+                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
             </div>
 
             <?php if ($block->getSubtitle()): ?>
                 <div class="banner-subtitle">
-                    <em><?= $escaper->escapeHtml($block->getSubtitle()) ?></em>
+                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
                 </div>
             <?php endif; ?>
 
             <?php if ($block->getDescription()): ?>
                 <p class="banner-text">
-                    <?= $escaper->escapeHtml($block->getDescription()) ?>
+                    <?= $block->escapeHtml($block->getDescription()) ?>
                 </p>
             <?php endif; ?>
             <div class="banner-buttons">
                 <div class="banner-primary">
-                    <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
-                        <span class="action primary"><?= $escaper->escapeHtml($block->getLabel()) ?></span>
+                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
                     </a>
                 </div>
             </div>
