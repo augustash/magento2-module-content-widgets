@@ -12,6 +12,7 @@
         <plugin name="content-widget-imagefix" type="Augustash\ContentWidgets\Plugin\FixImageChooserUrlPlugin" sortOrder="10" disabled="false"/>
     </type>
 
+    <!-- CALLOUTS -->
     <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\Category" type="Augustash\ContentWidgets\Block\Widget\Callout\Link">
         <arguments>
             <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
@@ -23,7 +24,9 @@
             <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
         </arguments>
     </virtualType>
+    <!-- /CALLOUTS -->
 
+    <!-- PROMOTIONS -->
     <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CategoryPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\Promotion">
         <arguments>
             <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
@@ -41,4 +44,25 @@
             <argument name="entityResource" xsi:type="object">null</argument>
         </arguments>
     </virtualType>
+    <!-- /PROMOTIONS -->
+
+    <!-- BANNERS -->
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Banner\Category" type="Augustash\ContentWidgets\Block\Widget\Callout\Banner">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Banner\Product" type="Augustash\ContentWidgets\Block\Widget\Callout\Banner">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Banner\CustomBanner" type="Augustash\ContentWidgets\Block\Widget\Callout\Banner">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">null</argument>
+        </arguments>
+    </virtualType>
+    <!-- /BANNERS -->
 </config>

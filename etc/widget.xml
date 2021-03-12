@@ -284,4 +284,204 @@
             </parameter>
         </parameters>
     </widget>
+
+
+    <widget id="widget_banner_category" class="Augustash\ContentWidgets\Block\Widget\Banner\Category">
+        <label translate="true">Featured Banner (Category)</label>
+        <description translate="true">Displays a banner that links to a Category.</description>
+        <parameters>
+            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Large Image (width: 1280 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Large Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Medium Image (width: 640 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Medium Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Small Image (width: 320 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Small Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Banner">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Position the image. Defaults to background.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the category name here.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="80">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_banner_product" class="Augustash\ContentWidgets\Block\Widget\Banner\Product">
+        <label translate="true">Featured Banner (Product)</label>
+        <description translate="true">Displays a banner that links to a Product.</description>
+        <parameters>
+            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Large Image (width: 1280 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Large Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Medium Image (width: 640 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Medium Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Small Image (width: 320 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Small Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Banner">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Position the image. Defaults to background.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the product name here.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="60">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\Custom">
+        <label translate="true">Featured Banner (Custom URL)</label>
+        <description translate="true">Displays a banner that links to a custom URL.</description>
+        <parameters>
+            <parameter name="large_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Large Image (width: 1280 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Large Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Medium Image (width: 640 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Medium Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Small Image (width: 320 px)</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Small Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Banner">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Position the image. Defaults to background.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we'll use the product name here.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="70" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="href" xsi:type="text" visible="true" required="true" sort_order="80">
+                <label translate="true">Custom URL</label>
+                <description translate="true">The fully-qualified URL you want the customer to be directed to.</description>
+            </parameter>
+        </parameters>
+    </widget>
 </widgets>

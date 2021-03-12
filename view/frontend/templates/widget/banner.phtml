@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * Content Widgets
+ *
+ * @author    Josh Johnson <josh@augustash.com>
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
+ */
+
+/** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+?>
+<div class="banner-widget banner-<?= $block->escapeHtmlAttr($block->getDisplayMode()) ?>">
+    <div class="banner-wrapper">
+        <div class="banner-image">
+            <?php
+                $largeImageUrl = $block->getLargeImage();
+                $mediumImageUrl = $block->getMediumImage();
+                $smallImageUrl = $block->getSmallImage();
+                $alt = $block->escapeHtml($block->getLabel())
+            ?>
+            <img srcset="<?= /* @noEscape */ $largeImageUrl ?>  1280w,
+                    <?= /* @noEscape */ $mediumImageUrl ?> 640w,
+                    <?= /* @noEscape */ $smallImageUrl ?> 320w,
+                sizes="(min-width: 36em) 33.3vw,
+                    100vw"
+                src="<?= /* @noEscape */ $largeImageUrl ?> "
+                alt="<?= $block->escapeHtmlAttr($alt) ?>"
+                loading="lazy" />
+        </div>
+        <div class="banner-content">
+            <div class="banner-header">
+                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+            </div>
+
+            <?php if ($block->getSubtitle()) : ?>
+                <div class="banner-subtitle">
+                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($block->getDescription()) : ?>
+                <p class="banner-text">
+                    <?= $block->escapeHtml($block->getDescription()) ?>
+                </p>
+            <?php endif; ?>
+            <div class="banner-buttons">
+                <div class="banner-primary">
+                    <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
