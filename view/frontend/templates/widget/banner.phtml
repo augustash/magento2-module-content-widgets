@@ -45,13 +45,15 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
                     <?= $escaper->escapeHtml($block->getDescription()) ?>
                 </p>
             <?php endif; ?>
-            <div class="banner-buttons">
-                <div class="banner-primary">
-                    <a class="action primary" <?= /* @noEscape */ $block->getLinkAttributes() ?>>
-                        <span><?= $escaper->escapeHtml($block->getLabel()) ?></span>
-                    </a>
+            <?php if ($block->getHref() && $block->getLabel()): ?>
+                <div class="banner-buttons">
+                    <div class="banner-primary">
+                        <a class="action primary" <?= /* @noEscape */ $block->getLinkAttributes() ?>>
+                            <span><?= $escaper->escapeHtml($block->getLabel()) ?></span>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
