@@ -13,28 +13,28 @@
 $additionalCssClasses = 'callout-' . $block->getDisplayMode();
 $additionalCssClasses .= $block->getBreakoutParentContainer() ? ' breakout-of-parent' : '';
 ?>
-<div class="callout-widget custom <?= $block->escapeHtmlAttr($additionalCssClasses) ?>">
+<div class="callout-widget custom <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
     <div class="callout-wrapper">
         <div class="callout-image">
-            <img src="<?= $block->escapeUrl($block->getImage()) ?>" alt="<?= $block->escapeHtml($block->getLabel()) ?>" />
+            <img src="<?= $escaper->escapeUrl($block->getImage()) ?>" alt="<?= $escaper->escapeHtml($block->getLabel()) ?>" />
         </div>
         <div class="callout-content">
             <div class="callout-header">
-                <strong><?= $block->escapeHtml($block->getHeading()) ?></strong>
+                <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
             </div>
             <?php if ($block->getSubtitle()): ?>
                 <div class="callout-subtitle">
-                    <em><?= $block->escapeHtml($block->getSubtitle()) ?></em>
+                    <em><?= $escaper->escapeHtml($block->getSubtitle()) ?></em>
                 </div>
             <?php endif; ?>
-            <p class="callout-text">
-                <?= $block->escapeHtml($block->getDescription(), ['ul', 'li', 'a', 'p', 'strong', 'em', 'br']) ?>
-            </p>
+            <div class="callout-text">
+                <?= $escaper->escapeHtml($block->getDescription(), ['ul', 'li', 'a', 'p', 'strong', 'em', 'br']) ?>
+            </div>
             <?php if ($block->getHref()): ?>
                 <div class="callout-buttons">
                     <div class="callout-primary">
-                        <a <?= $block->escapeHtmlAttr($block->getLinkAttributes()) ?>>
-                            <span class="action primary"><?= $block->escapeHtml($block->getLabel()) ?></span>
+                        <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                            <span class="action primary"><?= $escaper->escapeHtml($block->getLabel()) ?></span>
                         </a>
                     </div>
                 </div>
