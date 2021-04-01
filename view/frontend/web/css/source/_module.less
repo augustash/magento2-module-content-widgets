@@ -2,7 +2,7 @@
  * Content Widgets
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
 // ------------------------------------------------------------------------------
@@ -27,7 +27,19 @@
     .callout-content {
       padding-left: 1rem;
       padding-right: 0;
-      text-align: center;
+      text-align: left;
+
+      .callout-header {
+        font-size: 2rem;
+      }
+
+      .callout-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .callout-text {
+        margin-top: 1rem;
+      }
     }
 
     .callout-image {
@@ -168,10 +180,39 @@
   }
 }
 
+.banner-widget {
+  position: relative;
+  margin-bottom: 2rem;
+
+  &.inverted-color {
+    color: @color-white;
+  }
+
+  .banner-wrapper {
+    position: relative;
+
+    .banner-content {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+    }
+
+    .banner-header {
+      font-size: 3rem;
+      font-weight: 400;
+
+      strong {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
 // ------------------------------------------------------------------------------
 //  Desktop
 // ------------------------------------------------------------------------------
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
   .block.promotions-wrapper {
 
     > a {
@@ -184,6 +225,7 @@
 //  Tablet
 // ------------------------------------------------------------------------------
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+
   .block.promotions-wrapper {
 
     > a {
@@ -196,6 +238,7 @@
 //  Mobile
 // ------------------------------------------------------------------------------
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
   .callout-widget {
 
     .callout-wrapper {
@@ -227,6 +270,27 @@
 
       .callout-image {
         padding: 0 0 1rem;
+      }
+    }
+  }
+
+  .banner-widget {
+
+    .banner-wrapper {
+
+      .banner-content {
+
+        &.overlay-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 1rem;
+        }
+
+        &.stacked-below-image {
+          position: relative;
+          color: @color-black;
+        }
       }
     }
   }

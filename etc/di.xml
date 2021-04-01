@@ -4,12 +4,15 @@
  * Content Widgets
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Widget\Model\Widget">
         <plugin name="content-widget-imagefix" type="Augustash\ContentWidgets\Plugin\FixImageChooserUrlPlugin" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Widget\Model\Widget">
+        <plugin name="content-widget-escape-quotes" type="Augustash\ContentWidgets\Plugin\EscapeQuotesPlugin" sortOrder="20" disabled="false"/>
     </type>
 
     <!-- CALLOUTS -->
@@ -22,6 +25,12 @@
     <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\Product" type="Augustash\ContentWidgets\Block\Widget\Callout\Link">
         <arguments>
             <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CustomCalloutOptionalLink" type="Augustash\ContentWidgets\Block\Widget\Callout\Custom">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">null</argument>
         </arguments>
     </virtualType>
     <!-- /CALLOUTS -->

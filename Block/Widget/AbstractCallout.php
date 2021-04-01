@@ -4,7 +4,7 @@
  * Content Widgets
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\ContentWidgets\Block\Widget;
@@ -101,7 +101,7 @@ abstract class AbstractCallout extends Link implements BlockInterface
     public function getDisplayMode()
     {
         if (!$this->getData('display_mode')) {
-            return self::$_defaultMode;
+            return $this->_defaultMode;
         }
 
         return $this->getData('display_mode');
