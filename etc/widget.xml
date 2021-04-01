@@ -4,7 +4,7 @@
  * Content Widgets
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
@@ -31,7 +31,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
@@ -76,7 +76,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
@@ -121,7 +121,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
@@ -140,6 +140,53 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="widget_custom_callout" class="Augustash\ContentWidgets\Block\Widget\Callout\CustomCalloutOptionalLink">
+        <label translate="true">Featured Callout (Custom w/ optional Link)</label>
+        <description translate="true">Displays a content feature to highlight custom pieces of content/links.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" required="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <description translate="true">The image should have a max height of roughly 400px.</description>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="subtitle" xsi:type="text" visible="true" required="false" sort_order="20">
+                <label translate="true">Subtitle</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image on the left or right. Defaults to left.</description>
+            </parameter>
+            <parameter name="breakout_parent_container" xsi:type="select" visible="true" sort_order="50" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Breakout of Parent Container</label>
+                <description translate="true">Allow content to break out of it's parent container so it can expand wider or potentially full-width.</description>
+            </parameter>
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="70">
+                <label translate="true">Button Text</label>
+                <description translate="true">If empty, we will not display a button.</description>
+            </parameter>
+            <parameter name="href" xsi:type="text" visible="true" required="false" sort_order="80">
+                <label translate="true">Custom URL</label>
+                <description translate="true">The fully-qualified URL you want the customer to be directed to. If blank, will not display button link.</description>
             </parameter>
         </parameters>
     </widget>
@@ -428,7 +475,7 @@
             </parameter>
         </parameters>
     </widget>
-    <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\Custom">
+    <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\CustomBanner">
         <label translate="true">Featured Banner (Custom URL)</label>
         <description translate="true">Displays a banner that links to a custom URL.</description>
         <parameters>

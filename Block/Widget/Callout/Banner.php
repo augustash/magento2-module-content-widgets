@@ -97,6 +97,20 @@ class Banner extends ParentCallout
     }
 
     /**
+     * Prepare button label.
+     *
+     * @return string
+     */
+    public function getLabel(): string
+    {
+        if (!$this->getData('anchor_text')) {
+            return '';
+        }
+
+        return $this->getData('anchor_text');
+    }
+
+    /**
      * Should text color be inverted?
      *
      * @return boolean

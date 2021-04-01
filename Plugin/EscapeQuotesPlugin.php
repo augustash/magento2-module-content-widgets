@@ -3,7 +3,7 @@
 /**
  * Content Widgets
  *
- * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @author    Josh Johnson <josh@augustash.com>
  * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
@@ -12,12 +12,14 @@ namespace Augustash\ContentWidgets\Plugin;
 use Magento\Widget\Model\Widget as Subject;
 
 /**
- * Fix image chooser URL class.
+ * Escape/replace double quotes from WYSIWYG or raw HTML content
+ * because the widget directive also uses double quotes.
  */
-class FixImageChooserUrlPlugin
+class EscapeQuotesPlugin
 {
     /**
-     * Fixes image URLs within widget templates.
+     * Escape/replace double quotes in HTML content to avoid
+     * premature closures and loss of data.
      *
      * @param \Magento\Widget\Model\Widget $subject
      * @param string $type
@@ -33,13 +35,10 @@ class FixImageChooserUrlPlugin
     ): array {
         foreach ($params as $name => $value) {
             if (\is_string($value)) {
-                if (preg_match('/(___directive\/)([a-zA-Z0-9,_-]+)/', $value, $matches)) {
-                    $directive = \base64_decode(strtr($matches[2], '-_,', '+/='));
-                    $params[$name] = \str_replace(
-                        ['{{media url="', '"}}'],
-                        ['', ''],
-                        $directive
-                    );
+                // Replace double quotes if value contains HTML content
+                if ($value != \strip_tags($value)) { // check if value contains HTML tags
+                    $html = \str_replace('"', "'", $value);
+                    $params[$name] = $html;
                 }
             }
         }
