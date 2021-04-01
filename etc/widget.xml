@@ -471,7 +471,7 @@
             </parameter>
         </parameters>
     </widget>
-    <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\Custom">
+    <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\CustomBanner">
         <label translate="true">Featured Banner (Custom URL)</label>
         <description translate="true">Displays a banner that links to a custom URL.</description>
         <parameters>
