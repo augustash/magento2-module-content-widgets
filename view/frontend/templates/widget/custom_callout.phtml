@@ -12,6 +12,7 @@
 
 $additionalCssClasses = 'callout-' . $block->getDisplayMode();
 $additionalCssClasses .= $block->getBreakoutParentContainer() ? ' breakout-of-parent' : '';
+$additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
 ?>
 <div class="callout-widget custom <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
     <div class="callout-wrapper">
@@ -28,9 +29,9 @@ $additionalCssClasses .= $block->getBreakoutParentContainer() ? ' breakout-of-pa
                 </div>
             <?php endif; ?>
             <div class="callout-text">
-                <?= $escaper->escapeHtml($block->getDescription(), ['ul', 'li', 'a', 'p', 'strong', 'em', 'br']) ?>
+                <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
             </div>
-            <?php if ($block->getHref()): ?>
+            <?php if ($block->getHref() && $block->getLabel()): ?>
                 <div class="callout-buttons">
                     <div class="callout-primary">
                         <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>

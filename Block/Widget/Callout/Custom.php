@@ -9,12 +9,10 @@
 
 namespace Augustash\ContentWidgets\Block\Widget\Callout;
 
-use Augustash\ContentWidgets\Block\Widget\Callout\Link as ParentCallout;
+use Augustash\ContentWidgets\Block\Widget\Callout\OptionalLink as ParentCallout;
 use Magento\Widget\Block\BlockInterface;
-use Magento\Framework\View\Element\Template as ParentTemplate;
-use Magento\Framework\Exception\LocalizedException;
 
-class Custom extends ParentCallout implements BlockInterface
+class Custom extends ParentCallout
 {
     /**
      * @var string
@@ -22,17 +20,9 @@ class Custom extends ParentCallout implements BlockInterface
     protected $_template = 'widget/custom_callout.phtml';
 
     /**
-     * {@inheritdoc}
+     * @var string
      */
-    public function getHref()
-    {
-        try {
-            parent::getHref();
-            return $this->getData('href');
-        } catch (\Exception $e) {
-            return false;
-        }
-    }
+    protected $_defaultMode = 'left';
 
     /**
      * {@inheritdoc}
@@ -40,24 +30,11 @@ class Custom extends ParentCallout implements BlockInterface
     public function getDescription()
     {
         try {
-            return parent::getDescription();
+            $description = htmlspecialchars_decode(parent::getDescription());
+            return $description;
         } catch (\Exception $e) {
             return '';
         }
-    }
-
-    /**
-     * Prepare button label.
-     *
-     * @return string
-     */
-    public function getLabel(): string
-    {
-        if (!$this->getData('anchor_text')) {
-            return '';
-        }
-
-        return $this->getData('anchor_text');
     }
 
     /**
@@ -71,12 +48,22 @@ class Custom extends ParentCallout implements BlockInterface
     }
 
     /**
-     * Render block HTML.
+     * Should text color be inverted?
      *
-     * @return string
+     * @return boolean
      */
-    protected function _toHtml()
+    public function getInvertedColor(): bool
     {
-        return ParentTemplate::_toHtml();
+        return (bool) $this->getData('inverted_color');
+    }
+
+    /**
+     * Return array of allowed HTML tags that escapeHtml should let through.
+     *
+     * @return array
+     */
+    public function getAllowedHtmlTags(): array
+    {
+        return ['p', 'a', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'span', 'div', 'br'];
     }
 }

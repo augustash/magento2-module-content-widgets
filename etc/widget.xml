@@ -166,17 +166,21 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
                 <description translate="true">Render the callout image on the left or right. Defaults to left.</description>
             </parameter>
-            <parameter name="breakout_parent_container" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+            <parameter name="breakout_parent_container" xsi:type="select" visible="true" sort_order="50" source_model="Magento\Config\Model\Config\Source\Yesno">
                 <label translate="true">Breakout of Parent Container</label>
                 <description translate="true">Allow content to break out of it's parent container so it can expand wider or potentially full-width.</description>
             </parameter>
-            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="50">
+            <parameter name="inverted_color" xsi:type="select" visible="true" sort_order="60" source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Invert Colors</label>
+                <description translate="true">Invert the text color if your background image is dark and you want light text. Default is No.</description>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true" required="false" sort_order="70">
                 <label translate="true">Button Text</label>
                 <description translate="true">If empty, we will not display a button.</description>
             </parameter>
