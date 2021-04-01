@@ -31,7 +31,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
@@ -76,7 +76,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>
@@ -121,7 +121,7 @@
             </parameter>
             <parameter name="description" xsi:type="block" visible="true" required="true" sort_order="30">
                 <label translate="true">Description</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\WysiwygEditor"/>
             </parameter>
             <parameter name="display_mode" xsi:type="select" visible="true" sort_order="40" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\Callout">
                 <label translate="true">Display Mode</label>

@@ -24,9 +24,9 @@
             <div class="callout-header">
                 <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
             </div>
-            <p class="callout-text">
+            <div class="callout-text">
                 <?= $escaper->escapeHtml($block->getDescription()) ?>
-            </p>
+            </div>
             <div class="callout-buttons">
                 <div class="callout-primary">
                     <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
