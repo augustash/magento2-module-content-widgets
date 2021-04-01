@@ -101,7 +101,7 @@ abstract class AbstractCallout extends Link implements BlockInterface
     public function getDisplayMode()
     {
         if (!$this->getData('display_mode')) {
-            return self::$_defaultMode;
+            return $this->_defaultMode;
         }
 
         return $this->getData('display_mode');
