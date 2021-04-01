@@ -24,6 +24,12 @@
             <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
         </arguments>
     </virtualType>
+
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\CustomCalloutOptionalLink" type="Augustash\ContentWidgets\Block\Widget\Callout\Custom">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">null</argument>
+        </arguments>
+    </virtualType>
     <!-- /CALLOUTS -->
 
     <!-- PROMOTIONS -->
