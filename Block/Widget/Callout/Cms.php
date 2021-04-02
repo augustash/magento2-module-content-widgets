@@ -10,6 +10,8 @@
 namespace Augustash\ContentWidgets\Block\Widget\Callout;
 
 use Augustash\ContentWidgets\Block\Widget\AbstractCallout;
+use Augustash\ImageOptimizer\Helper\Data as ImageOptimizerHelper;
+use Augustash\ImageOptimizer\Service\ImageResizer;
 use Magento\Cms\Helper\Page as PageHelper;
 use Magento\Cms\Model\ResourceModel\Page as PageResource;
 use Magento\Framework\Exception\LocalizedException;
@@ -20,6 +22,16 @@ use Magento\Framework\View\Element\Template\Context;
  */
 class Cms extends AbstractCallout
 {
+    /**
+     * @var \Augustash\ImageOptimizer\Helper\Data
+     */
+    protected $imageOptimizerHelper;
+
+    /**
+     * @var \Augustash\ImageOptimizer\Service\ImageResizer
+     */
+    protected $imageResizer;
+
     /**
      * @var \Magento\Cms\Model\ResourceModel\Page
      */
@@ -37,19 +49,26 @@ class Cms extends AbstractCallout
      *
      * Initialize class dependencies.
      *
-     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Augustash\ImageOptimizer\Helper\Data $imageOptimizerHelper
+     * @param \Augustash\ImageOptimizer\Service\ImageResizer $imageResizer
      * @param \Magento\Cms\Model\ResourceModel\Page $cmsPageResource
      * @param \Magento\Cms\Helper\Page $cmsPageHelper
+     * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
      */
     public function __construct(
-        Context $context,
+        ImageOptimizerHelper $imageOptimizerHelper,
+        ImageResizer $imageResizer,
         PageResource $cmsPageResource,
         PageHelper $cmsPageHelper,
+        Context $context,
         array $data = []
     ) {
+        $this->imageOptimizerHelper = $imageOptimizerHelper;
+        $this->imageResizer = $imageResizer;
         $this->cmsPageResource = $cmsPageResource;
         $this->cmsPageHelper = $cmsPageHelper;
+
         parent::__construct($context, $data);
     }
 

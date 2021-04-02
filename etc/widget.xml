@@ -23,6 +23,9 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="true" sort_order="5">
+                <label translate="true">Image Resize Width</label>
+            </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
             </parameter>
@@ -67,6 +70,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="true" sort_order="5">
+                <label translate="true">Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
@@ -113,6 +119,9 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="true" sort_order="5">
+                <label translate="true">Image Resize Width</label>
+            </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
             </parameter>
@@ -157,6 +166,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="true" sort_order="5">
+                <label translate="true">Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
@@ -203,6 +215,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="false" sort_order="5">
+                <label translate="true">Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
@@ -253,6 +268,9 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="false" sort_order="5">
+                <label translate="true">Image Resize Width</label>
+            </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
             </parameter>
@@ -302,6 +320,9 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="false" sort_order="5">
+                <label translate="true">Image Resize Width</label>
+            </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
             </parameter>
@@ -345,7 +366,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="large_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="2">
+                <label translate="true">Large Image Resize Width</label>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="3">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -355,7 +379,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="medium_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="4">
+                <label translate="true">Medium Image Resize Width</label>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="5">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -364,6 +391,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="small_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="6">
+                <label translate="true">Small Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
@@ -417,7 +447,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="large_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="2">
+                <label translate="true">Large Image Resize Width</label>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="3">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -427,7 +460,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="medium_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="4">
+                <label translate="true">Medium Image Resize Width</label>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="5">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -436,6 +472,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="small_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="6">
+                <label translate="true">Small Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
@@ -489,7 +528,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="large_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="2">
+                <label translate="true">Large Image Resize Width</label>
+            </parameter>
+            <parameter name="medium_image" xsi:type="block" visible="true" required="true" sort_order="3">
                 <label translate="true">Medium Image (width: 640 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -499,7 +541,10 @@
                     </data>
                 </block>
             </parameter>
-            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="1">
+            <parameter name="medium_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="4">
+                <label translate="true">Medium Image Resize Width</label>
+            </parameter>
+            <parameter name="small_image" xsi:type="block" visible="true" required="true" sort_order="5">
                 <label translate="true">Small Image (width: 320 px)</label>
                 <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
                     <data>
@@ -508,6 +553,9 @@
                         </item>
                     </data>
                 </block>
+            </parameter>
+            <parameter name="small_image_resize_width" xsi:type="text" visible="true" required="true" sort_order="6">
+                <label translate="true">Small Image Resize Width</label>
             </parameter>
             <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
                 <label translate="true">Title</label>
