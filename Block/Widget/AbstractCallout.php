@@ -191,6 +191,27 @@ abstract class AbstractCallout extends Link implements BlockInterface
     }
 
     /**
+     * Get callout image URL.
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        if (!$this->getData('image')) {
+            throw new LocalizedException(__('Callout image is not set.'));
+        }
+
+        $mediaUrl = $this->_storeManager->getStore()
+            ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
+        return sprintf(
+            '%s%s',
+            $mediaUrl,
+            $this->getData('image')
+        );
+    }
+
+    /**
      * Get callout heading.
      *
      * @return string
