@@ -73,6 +73,39 @@ class Cms extends AbstractCallout
     }
 
     /**
+     * Get callout image URL.
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        if (!$this->getData('image')) {
+            throw new LocalizedException(__('Callout image is not set.'));
+        }
+
+        $resizedImageUrl = $this->getResizedImageUrlForImage('image');
+        return $resizedImageUrl;
+    }
+
+    /**
+     * Resize image and return the relative URL to the cached
+     * version of the resized image.
+     *
+     * @param string $imageStyle
+     * @return string
+     */
+    public function getResizedImageUrlForImage($imageStyle = 'image')
+    {
+        $resizer = $this->getImageResizer();
+        $resizeWidth = $this->getResizeWidthForImage($imageStyle);
+        $mediaPath = $this->getImageOptimizerHelper()->getPath('media');
+        $filepath = $mediaPath . \DIRECTORY_SEPARATOR . $this->getData($imageStyle);
+
+        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth);
+        return $resizedImageUrl;
+    }
+
+    /**
      * Prepare page URL. Use passed identifier or retrieve using passed page ID.
      *
      * @return string
