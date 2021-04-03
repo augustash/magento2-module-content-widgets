@@ -86,14 +86,54 @@ abstract class AbstractCallout extends Link implements BlockInterface
             case 'medium_image':
                 $width = $this->getMediumImageResizeWidth();
                 break;
-            
+
             case 'large_image':
                 $width = $this->getLargeImageResizeWidth();
                 break;
-            
+
             case 'image':
             default:
                 $width = $this->getImageResizeWidth();
+                break;
+        }
+
+        return (int)$width;
+    }
+
+    /**
+     * Return integer value of the width of width the image should be resized to.
+     * Defaults to null if no matching image style is found (i.e., 'small_image',
+     * 'medium_image', 'large_image', and 'image').
+     *
+     * @param string $imageStyle
+     * @return int
+     */
+    public function getResizeHeightForImage($imageStyle = 'image')
+    {
+        switch (strtolower(trim($imageStyle))) {
+            case 'icon_image':
+                $width = $this->getIconImageResizeHeight();
+                break;
+
+            case 'thumbnail_image':
+                $width = $this->getThumbnailImageResizeHeight();
+                break;
+
+            case 'small_image':
+                $width = $this->getSmallImageResizeHeight();
+                break;
+
+            case 'medium_image':
+                $width = $this->getMediumImageResizeHeight();
+                break;
+
+            case 'large_image':
+                $width = $this->getLargeImageResizeHeight();
+                break;
+
+            case 'image':
+            default:
+                $width = $this->getImageResizeHeight();
                 break;
         }
 
@@ -188,6 +228,96 @@ abstract class AbstractCallout extends Link implements BlockInterface
         }
 
         return (int)$this->getData('icon_image_resize_width');
+    }
+
+    /**
+     * Return integer value of the width the image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getImageResizeHeight()
+    {
+        if ($this->getData('image_resize_height')) {
+            return (int)$this->getData('image_resize_height');
+        }
+
+        return null;
+    }
+
+    /**
+     * Return integer value of the width the large image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getLargeImageResizeHeight()
+    {
+        if (!$this->getData('large_image_resize_height')) {
+            return (int)$this->getData('large_image_resize_height');
+        }
+
+        return null;
+    }
+
+    /**
+     * Return integer value of the width the medium image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getMediumImageResizeHeight()
+    {
+        if ($this->getData('medium_image_resize_height')) {
+            return (int)$this->getData('medium_image_resize_height');
+        }
+
+        return null;
+    }
+
+    /**
+     * Return integer value of the width the small image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getSmallImageResizeHeight()
+    {
+        if ($this->getData('small_image_resize_height')) {
+            return (int)$this->getData('small_image_resize_height');
+        }
+
+        return null;
+    }
+
+    /**
+     * Return integer value of the width the thumbnail image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getThumbnailImageResizeHeight()
+    {
+        if ($this->getData('thumbnail_image_resize_height')) {
+            return (int)$this->getData('thumbnail_image_resize_height');
+        }
+
+        return null;
+    }
+
+    /**
+     * Return integer value of the width the icon image should be resized to.
+     * Defaults to null if not specified.
+     *
+     * @return null|int
+     */
+    public function getIconImageResizeHeight()
+    {
+        if ($this->getData('icon_image_resize_height')) {
+            return (int)$this->getData('icon_image_resize_height');
+        }
+
+        return null;
     }
 
     /**

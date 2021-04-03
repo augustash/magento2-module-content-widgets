@@ -60,7 +60,7 @@ class Link extends AbstractCallout
     public function __construct(
         ImageOptimizerHelper $imageOptimizerHelper,
         ImageResizer $imageResizer,
-        ?AbstractResource $entityResource,
+        $entityResource,
         UrlFinderInterface $urlFinder,
         Context $context,
         array $data = []
@@ -99,13 +99,13 @@ class Link extends AbstractCallout
     {
         $resizer = $this->getImageResizer();
         $resizeWidth = $this->getResizeWidthForImage($imageStyle);
+        $resizeHeight = $this->getResizeHeightForImage($imageStyle);
         $mediaPath = $this->getImageOptimizerHelper()->getPath('media');
         $filepath = $mediaPath . \DIRECTORY_SEPARATOR . $this->getData($imageStyle);
 
-        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth);
+        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth, $resizeHeight);
         return $resizedImageUrl;
     }
-
 
     /**
      * Prepare URL using passed ID path and return it.
