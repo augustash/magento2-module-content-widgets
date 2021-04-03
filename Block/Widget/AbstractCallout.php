@@ -112,32 +112,32 @@ abstract class AbstractCallout extends Link implements BlockInterface
     {
         switch (strtolower(trim($imageStyle))) {
             case 'icon_image':
-                $width = $this->getIconImageResizeHeight();
+                $height = $this->getIconImageResizeHeight();
                 break;
 
             case 'thumbnail_image':
-                $width = $this->getThumbnailImageResizeHeight();
+                $height = $this->getThumbnailImageResizeHeight();
                 break;
 
             case 'small_image':
-                $width = $this->getSmallImageResizeHeight();
+                $height = $this->getSmallImageResizeHeight();
                 break;
 
             case 'medium_image':
-                $width = $this->getMediumImageResizeHeight();
+                $height = $this->getMediumImageResizeHeight();
                 break;
 
             case 'large_image':
-                $width = $this->getLargeImageResizeHeight();
+                $height = $this->getLargeImageResizeHeight();
                 break;
 
             case 'image':
             default:
-                $width = $this->getImageResizeHeight();
+                $height = $this->getImageResizeHeight();
                 break;
         }
 
-        return (int)$width;
+        return (int)$height;
     }
 
     /**
