@@ -107,6 +107,19 @@ class Link extends AbstractCallout
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getDescription()
+    {
+        try {
+            $description = htmlspecialchars_decode(parent::getDescription());
+            return $description;
+        } catch (\Exception $e) {
+            return '';
+        }
+    }
+
+    /**
      * Prepare URL using passed ID path and return it.
      *
      * @return string|false

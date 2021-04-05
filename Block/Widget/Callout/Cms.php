@@ -106,6 +106,19 @@ class Cms extends AbstractCallout
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getDescription()
+    {
+        try {
+            $description = htmlspecialchars_decode(parent::getDescription());
+            return $description;
+        } catch (\Exception $e) {
+            return '';
+        }
+    }
+
+    /**
      * Prepare page URL. Use passed identifier or retrieve using passed page ID.
      *
      * @return string
