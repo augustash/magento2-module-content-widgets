@@ -352,6 +352,40 @@
             </parameter>
         </parameters>
     </widget>
+    <widget id="widget_mini_custom_promotion" class="Augustash\ContentWidgets\Block\Widget\Callout\MiniCustomPromotion">
+        <label translate="true">Featured Mini Promotion (Custom URL)</label>
+        <description translate="true">Displays content as a mini promotion to highlight a custom URL.</description>
+        <parameters>
+            <parameter name="image" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Highlight Image</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="image_resize_width" xsi:type="text" visible="true" required="false" sort_order="5">
+                <label translate="true">Image Resize Width</label>
+            </parameter>
+            <parameter name="heading" xsi:type="text" visible="true" required="true" sort_order="10">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="description" xsi:type="block" visible="true" sort_order="20">
+                <label translate="true">Description</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
+            <parameter name="display_mode" xsi:type="select" visible="true" sort_order="30" source_model="Augustash\ContentWidgets\Model\Config\Source\Displaymode\MiniPromotion">
+                <label translate="true">Display Mode</label>
+                <description translate="true">Render the callout image in the left, center or right. Defaults to left.</description>
+            </parameter>
+            <parameter name="href" xsi:type="text" visible="true" required="true" sort_order="40">
+                <label translate="true">Custom URL</label>
+                <description translate="true">The fully-qualified URL you want the customer to be directed to.</description>
+            </parameter>
+        </parameters>
+    </widget>
     <widget id="widget_banner_category" class="Augustash\ContentWidgets\Block\Widget\Banner\Category">
         <label translate="true">Featured Banner (Category)</label>
         <description translate="true">Displays a banner that links to a Category.</description>

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Content Widgets
+ *
+ * @author    Josh Johnson <josh@augustash.com>
+ * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
+ */
+
+/** @var \Augustash\ContentWidgets\Block\Widget\Callout\MiniPromotion $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$additionalCssClasses = $block->getClass();
+$additionalCssClasses .= 'promotion-' . $block->getDisplayMode();
+$additionalCssClasses .= $block->getImage() ? ' with-image' : ' no-image';
+$block->setClass(trim($additionalCssClasses));
+?>
+<a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
+    <div class="promotion-callout-widget mini <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
+        <div class="promotion-callout-wrapper">
+            <?php if ($block->getImage()): ?>
+                <div class="promotion-callout-image">
+                    <img src="<?= $escaper->escapeUrl($block->getImage()) ?>" alt="<?= $escaper->escapeHtml($block->getHeading()) ?>" />
+                </div>
+            <?php endif; ?>
+            <div class="promotion-callout-content">
+                <div class="promotion-callout-header">
+                    <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
+                </div>
+                <?php if ($block->getDescription()): ?>
+                    <div class="promotion-callout-text">
+                        <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</a>
