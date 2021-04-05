@@ -99,11 +99,10 @@ class Link extends AbstractCallout
     {
         $resizer = $this->getImageResizer();
         $resizeWidth = $this->getResizeWidthForImage($imageStyle);
-        $resizeHeight = $this->getResizeHeightForImage($imageStyle);
         $mediaPath = $this->getImageOptimizerHelper()->getPath('media');
         $filepath = $mediaPath . \DIRECTORY_SEPARATOR . $this->getData($imageStyle);
 
-        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth, $resizeHeight);
+        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth);
         return $resizedImageUrl;
     }
 
