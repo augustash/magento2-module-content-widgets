@@ -34,9 +34,9 @@ $block->setClass(trim($additionalCssClasses));
                     <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
                 </div>
                 <?php if ($block->getDescription()) : ?>
-                    <p class="promotion-callout-text">
-                        <?= $escaper->escapeHtml($block->getDescription()) ?>
-                    </p>
+                    <div class="promotion-callout-text">
+                        <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
