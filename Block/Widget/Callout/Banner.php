@@ -39,11 +39,8 @@ class Banner extends ParentCallout
             throw new LocalizedException(__('Large image is not set.'));
         }
 
-        return sprintf(
-            '%s%s',
-            $this->getMediaUrl(),
-            $this->getData('large_image')
-        );
+        $resizedImageUrl = $this->getResizedImageUrlForImage('large_image');
+        return $resizedImageUrl;
     }
 
     /**
@@ -55,14 +52,10 @@ class Banner extends ParentCallout
     {
         if (!$this->getData('medium_image')) {
             return null;
-            // throw new LocalizedException(__('Medium image is not set.'));
         }
 
-        return sprintf(
-            '%s%s',
-            $this->getMediaUrl(),
-            $this->getData('medium_image')
-        );
+        $resizedImageUrl = $this->getResizedImageUrlForImage('medium_image');
+        return $resizedImageUrl;
     }
 
     /**
@@ -74,14 +67,10 @@ class Banner extends ParentCallout
     {
         if (!$this->getData('small_image')) {
             return null;
-            // throw new LocalizedException(__('Small image is not set.'));
         }
 
-        return sprintf(
-            '%s%s',
-            $this->getMediaUrl(),
-            $this->getData('small_image')
-        );
+        $resizedImageUrl = $this->getResizedImageUrlForImage('small_image');
+        return $resizedImageUrl;
     }
 
     /**

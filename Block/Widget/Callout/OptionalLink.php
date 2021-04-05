@@ -11,8 +11,9 @@ namespace Augustash\ContentWidgets\Block\Widget\Callout;
 
 use Augustash\ContentWidgets\Block\Widget\Callout\Link as ParentCallout;
 use Magento\Framework\View\Element\Template as ParentTemplate;
+use Magento\Widget\Block\BlockInterface;
 
-class OptionalLink extends ParentCallout
+class OptionalLink extends ParentCallout implements BlockInterface
 {
     /**
      * {@inheritdoc}

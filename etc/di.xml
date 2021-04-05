@@ -53,6 +53,11 @@
             <argument name="entityResource" xsi:type="object">null</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Augustash\ContentWidgets\Block\Widget\Callout\MiniCustomPromotion" type="Augustash\ContentWidgets\Block\Widget\Callout\MiniPromotion">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">null</argument>
+        </arguments>
+    </virtualType>
     <!-- /PROMOTIONS -->
 
     <!-- BANNERS -->
