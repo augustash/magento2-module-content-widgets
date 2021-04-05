@@ -19,12 +19,12 @@ $block->setClass(trim($additionalCssClasses));
 <a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
     <div class="promotion-callout-widget <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
         <div class="promotion-callout-wrapper">
-            <?php if ($block->getShowBadge()) : ?>
+            <?php if ($block->getShowBadge()): ?>
                 <div class="promotion-callout-badge">
                     <span class="promotion-badge-label"><?= $escaper->escapeHtml($block->getBadgeLabel()) ?>
                 </div>
             <?php endif; ?>
-            <?php if ($block->getImage()) : ?>
+            <?php if ($block->getImage()): ?>
                 <div class="promotion-callout-image">
                     <img src="<?= $escaper->escapeUrl($block->getImage()) ?>" alt="<?= $escaper->escapeHtml($block->getHeading()) ?>" />
                 </div>
@@ -33,7 +33,7 @@ $block->setClass(trim($additionalCssClasses));
                 <div class="promotion-callout-header">
                     <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
                 </div>
-                <?php if ($block->getDescription()) : ?>
+                <?php if ($block->getDescription()): ?>
                     <div class="promotion-callout-text">
                         <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
                     </div>
