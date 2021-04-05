@@ -10,19 +10,31 @@
 namespace Augustash\ContentWidgets\Block\Widget\Callout;
 
 use Augustash\ContentWidgets\Block\Widget\AbstractCallout;
+use Augustash\ImageOptimizer\Helper\Data as ImageOptimizerHelper;
+use Augustash\ImageOptimizer\Service\ImageResizer;
 use Magento\Catalog\Model\ResourceModel\AbstractResource;
 use Magento\CatalogUrlRewrite\Model\ProductUrlRewriteGenerator;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\Store;
 use Magento\UrlRewrite\Model\UrlFinderInterface;
 use Magento\UrlRewrite\Service\V1\Data\UrlRewrite;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\View\Element\Template\Context;
 
 /**
  * Widget callout link block.
  */
 class Link extends AbstractCallout
 {
+    /**
+     * @var \Augustash\ImageOptimizer\Helper\Data
+     */
+    protected $imageOptimizerHelper;
+
+    /**
+     * @var \Augustash\ImageOptimizer\Service\ImageResizer
+     */
+    protected $imageResizer;
+
     /**
      * @var \Magento\Catalog\Model\ResourceModel\AbstractResource|null
      */
@@ -38,20 +50,73 @@ class Link extends AbstractCallout
      *
      * Initialize class dependencies.
      *
-     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Augustash\ImageOptimizer\Helper\Data $imageOptimizerHelper
+     * @param \Augustash\ImageOptimizer\Service\ImageResizer $imageResizer
      * @param \Magento\Catalog\Model\ResourceModel\AbstractResource|null $entityResource
      * @param \Magento\UrlRewrite\Model\UrlFinderInterface $urlFinder
+     * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
      */
     public function __construct(
-        Context $context,
+        ImageOptimizerHelper $imageOptimizerHelper,
+        ImageResizer $imageResizer,
         $entityResource,
         UrlFinderInterface $urlFinder,
+        Context $context,
         array $data = []
     ) {
+        $this->imageOptimizerHelper = $imageOptimizerHelper;
+        $this->imageResizer = $imageResizer;
         $this->entityResource = $entityResource;
         $this->urlFinder = $urlFinder;
+
         parent::__construct($context, $data);
+    }
+
+    /**
+     * Get callout image URL.
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        if (!$this->getData('image')) {
+            throw new LocalizedException(__('Callout image is not set.'));
+        }
+
+        $resizedImageUrl = $this->getResizedImageUrlForImage('image');
+        return $resizedImageUrl;
+    }
+
+    /**
+     * Resize image and return the relative URL to the cached
+     * version of the resized image.
+     *
+     * @param string $imageStyle
+     * @return string
+     */
+    public function getResizedImageUrlForImage($imageStyle = 'image')
+    {
+        $resizer = $this->getImageResizer();
+        $resizeWidth = $this->getResizeWidthForImage($imageStyle);
+        $mediaPath = $this->getImageOptimizerHelper()->getPath('media');
+        $filepath = $mediaPath . \DIRECTORY_SEPARATOR . $this->getData($imageStyle);
+
+        $resizedImageUrl = $resizer->resize($filepath, $resizeWidth);
+        return $resizedImageUrl;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDescription()
+    {
+        try {
+            $description = htmlspecialchars_decode(parent::getDescription());
+            return $description;
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 
     /**

@@ -10,7 +10,6 @@
 namespace Augustash\ContentWidgets\Block\Widget\Callout;
 
 use Augustash\ContentWidgets\Block\Widget\Callout\OptionalLink as ParentCallout;
-use Magento\Widget\Block\BlockInterface;
 
 class Custom extends ParentCallout
 {
@@ -55,15 +54,5 @@ class Custom extends ParentCallout
     public function getInvertedColor(): bool
     {
         return (bool) $this->getData('inverted_color');
-    }
-
-    /**
-     * Return array of allowed HTML tags that escapeHtml should let through.
-     *
-     * @return array
-     */
-    public function getAllowedHtmlTags(): array
-    {
-        return ['p', 'a', 'strong', 'em', 'b', 'i', 'ul', 'ol', 'li', 'span', 'div', 'br'];
     }
 }

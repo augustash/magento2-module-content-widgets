@@ -27,15 +27,18 @@ class Promotion extends ParentCallout
     protected $_defaultMode = 'center';
 
     /**
-     * {@inheritdoc}
+     * Get callout image URL.
+     *
+     * @return string
      */
     public function getImage()
     {
-        try {
-            return parent::getImage();
-        } catch (\Exception $e) {
+        if (!$this->getData('image')) {
             return null;
         }
+
+        $resizedImageUrl = $this->getResizedImageUrlForImage('image');
+        return $resizedImageUrl;
     }
 
     /**

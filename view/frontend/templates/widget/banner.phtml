@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
-/** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Augustash\ContentWidgets\Block\Widget\Callout\Banner $block */
 /** @var \Magento\Framework\Escaper $escaper */
 
 $additionalCssClasses = 'banner-' . $block->getDisplayMode();
@@ -41,9 +41,9 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
             <?php endif; ?>
 
             <?php if ($block->getDescription()): ?>
-                <p class="banner-text">
-                    <?= $escaper->escapeHtml($block->getDescription()) ?>
-                </p>
+                <div class="banner-text">
+                    <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
+                </div>
             <?php endif; ?>
             <?php if ($block->getHref() && $block->getLabel()): ?>
                 <div class="banner-buttons">

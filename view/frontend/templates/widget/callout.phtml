@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
-/** @var \Augustash\ContentWidgets\Block\Widget\AbstractCallout $block */
+/** @var \Augustash\ContentWidgets\Block\Widget\Callout\Link $block */
 /** @var \Magento\Framework\Escaper $escaper */
 ?>
 <div class="callout-widget callout-<?= $escaper->escapeHtmlAttr($block->getDisplayMode()) ?>">
@@ -25,7 +25,7 @@
                 <strong><?= $escaper->escapeHtml($block->getHeading()) ?></strong>
             </div>
             <div class="callout-text">
-                <?= $escaper->escapeHtml($block->getDescription()) ?>
+                <?= $escaper->escapeHtml($block->getDescription(), $block->getAllowedHtmlTags()) ?>
             </div>
             <div class="callout-buttons">
                 <div class="callout-primary">

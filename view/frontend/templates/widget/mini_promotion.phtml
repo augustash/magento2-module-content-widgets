@@ -3,27 +3,21 @@
 /**
  * Content Widgets
  *
- * @author    Peter McWilliams <pmcwilliams@augustash.com>
+ * @author    Josh Johnson <josh@augustash.com>
  * @copyright Copyright (c) 2021 August Ash (https://www.augustash.com)
  */
 
-/** @var \Augustash\ContentWidgets\Block\Widget\Callout\Promotion $block */
+/** @var \Augustash\ContentWidgets\Block\Widget\Callout\MiniPromotion $block */
 /** @var \Magento\Framework\Escaper $escaper */
 
 $additionalCssClasses = $block->getClass();
-$additionalCssClasses .= 'promotion-' . $block->getDisplayMode();
+$additionalCssClasses .= 'mini-promotion promotion-' . $block->getDisplayMode();
 $additionalCssClasses .= $block->getImage() ? ' with-image' : ' no-image';
-$additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
 $block->setClass(trim($additionalCssClasses));
 ?>
 <a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
-    <div class="promotion-callout-widget <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
+    <div class="promotion-callout-widget mini <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
         <div class="promotion-callout-wrapper">
-            <?php if ($block->getShowBadge()): ?>
-                <div class="promotion-callout-badge">
-                    <span class="promotion-badge-label"><?= $escaper->escapeHtml($block->getBadgeLabel()) ?>
-                </div>
-            <?php endif; ?>
             <?php if ($block->getImage()): ?>
                 <div class="promotion-callout-image">
                     <img src="<?= $escaper->escapeUrl($block->getImage()) ?>" alt="<?= $escaper->escapeHtml($block->getHeading()) ?>" />
