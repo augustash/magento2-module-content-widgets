@@ -11,7 +11,7 @@
 /** @var \Magento\Framework\Escaper $escaper */
 
 $additionalCssClasses = $block->getClass();
-$additionalCssClasses .= 'promotion-' . $block->getDisplayMode();
+$additionalCssClasses .= 'mini-promotion promotion-' . $block->getDisplayMode();
 $additionalCssClasses .= $block->getImage() ? ' with-image' : ' no-image';
 $block->setClass(trim($additionalCssClasses));
 ?>
