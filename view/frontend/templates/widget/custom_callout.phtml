@@ -34,7 +34,7 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
             <?php if ($block->getHref() && $block->getLabel()): ?>
                 <div class="callout-buttons">
                     <div class="callout-primary">
-                        <a <?= $escaper->escapeHtmlAttr($block->getLinkAttributes()) ?>>
+                        <a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
                             <span class="action primary"><?= $escaper->escapeHtml($block->getLabel()) ?></span>
                         </a>
                     </div>
