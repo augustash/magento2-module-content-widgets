@@ -10,25 +10,13 @@ The `Augustash_ContentWidgets` module offers some fairly standard content call-o
 
 ## Installation
 
-### Via Local Module
-
-Install the extension files directly into the project source:
-
-```bash
-mkdir -p app/code/Augustash/ContentWidgets/
-curl -Ss https://github.com/augustash/magento2-module-content-widgets/archive/2.1.2.tar.gz | tar xf - --strip 1 -C app/code/Augustash/ContentWidgets/
-bin/magento module:enable --clear-static-content Augustash_ContentWidgets
-bin/magento setup:upgrade
-bin/magento cache:flush
-```
-
 ### Via Composer
 
 Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://augustash.repo.repman.io
-composer require augustash/module-content-widgets:~2.1.2
+composer require augustash/module-content-widgets:~2.1.3
 bin/magento module:enable --clear-static-content Augustash_ContentWidgets
 bin/magento setup:upgrade
 bin/magento cache:flush

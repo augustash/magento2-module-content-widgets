@@ -19,6 +19,7 @@ use Magento\UrlRewrite\Model\UrlFinderInterface;
 use Magento\UrlRewrite\Service\V1\Data\UrlRewrite;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\Framework\ObjectManagerInterface;
 
 /**
  * Widget callout link block.
@@ -36,7 +37,7 @@ class Link extends AbstractCallout
     protected $imageResizer;
 
     /**
-     * @var \Magento\Catalog\Model\ResourceModel\AbstractResource|null
+     * @var \Magento\Catalog\Model\ResourceModel\AbstractResource|null|array
      */
     protected $entityResource = null;
 
@@ -45,6 +46,11 @@ class Link extends AbstractCallout
      */
     protected $urlFinder;
 
+     /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
+    protected $objectManager;
+
     /**
      * Constructor.
      *
@@ -52,8 +58,9 @@ class Link extends AbstractCallout
      *
      * @param \Augustash\ImageOptimizer\Helper\Data $imageOptimizerHelper
      * @param \Augustash\ImageOptimizer\Service\ImageResizer $imageResizer
-     * @param \Magento\Catalog\Model\ResourceModel\AbstractResource|null $entityResource
+     * @param \Magento\Catalog\Model\ResourceModel\AbstractResource|null|array $entityResource
      * @param \Magento\UrlRewrite\Model\UrlFinderInterface $urlFinder
+     * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
      */
@@ -62,13 +69,26 @@ class Link extends AbstractCallout
         ImageResizer $imageResizer,
         $entityResource,
         UrlFinderInterface $urlFinder,
+        ObjectManagerInterface $objectManager,
         Context $context,
         array $data = []
     ) {
         $this->imageOptimizerHelper = $imageOptimizerHelper;
         $this->imageResizer = $imageResizer;
-        $this->entityResource = $entityResource;
         $this->urlFinder = $urlFinder;
+        $this->objectManager = $objectManager;
+
+        // Fix issue if the $entityResource is passed in as an array
+        if (is_array($entityResource)) {
+            if (empty($entityResource)) {
+                $entityResource = null;
+            } else {
+                $entityResourceClass = reset($entityResource);
+                $entityResource = $this->objectManager->get($entityResourceClass);
+            }
+        }
+
+        $this->entityResource = $entityResource;
 
         parent::__construct($context, $data);
     }
