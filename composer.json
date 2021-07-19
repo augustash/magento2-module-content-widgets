@@ -2,7 +2,7 @@
     "name": "augustash/module-content-widgets",
     "description": "A collection of useful Magento 2 content widgets.",
     "type": "magento2-module",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "license": [
         "proprietary"
     ],
