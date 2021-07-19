@@ -84,7 +84,11 @@ class Link extends AbstractCallout
                 $entityResource = null;
             } else {
                 $entityResourceClass = reset($entityResource);
-                $entityResource = $this->objectManager->get($entityResourceClass);
+                if (!in_array($entityResourceClass, [null, "null", ""])) {
+                    $entityResource = $this->objectManager->get($entityResourceClass);
+                } else {
+                    $entityResource = null;
+                }
             }
         }
 
