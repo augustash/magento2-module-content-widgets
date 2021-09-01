@@ -46,7 +46,7 @@ class Link extends AbstractCallout
      */
     protected $urlFinder;
 
-     /**
+    /**
      * @var \Magento\Framework\ObjectManagerInterface
      */
     protected $objectManager;
