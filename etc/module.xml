@@ -8,7 +8,7 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Augustash_ContentWidgets">
+    <module name="Augustash_ContentWidgets" setup_version="2.1.5">
         <sequence>
             <module name="Augustash_ImageOptimizer"/>
             <module name="Magento_Catalog"/>
