@@ -15,6 +15,11 @@ $additionalCssClasses .= $block->getInvertedColor() ? ' inverted-color' : '';
 ?>
 <div class="banner-widget <?= $escaper->escapeHtmlAttr($additionalCssClasses) ?>">
     <div class="banner-wrapper">
+        <?php if ($block->getCssStyles()): ?>
+            <style>
+                <?= /* @noEscape */ $block->getCssStyles() ?>
+            </style>
+        <?php endif; ?>
         <div class="banner-image">
             <?php
                 $largeImageUrl = $block->getLargeImage();
