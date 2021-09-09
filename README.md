@@ -16,7 +16,7 @@ Install the extension using Composer using our development package repository:
 
 ```bash
 composer config repositories.augustash composer https://augustash.repo.repman.io
-composer require augustash/module-content-widgets:~2.2.0
+composer require augustash/module-content-widgets:~2.2.1
 bin/magento module:enable --clear-static-content Augustash_ContentWidgets
 bin/magento setup:upgrade
 bin/magento cache:flush
