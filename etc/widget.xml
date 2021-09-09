@@ -467,7 +467,7 @@
             </parameter>
             <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
                 <label translate="true">CSS Styles</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\CssTextarea"/>
             </parameter>
         </parameters>
     </widget>
@@ -552,7 +552,7 @@
             </parameter>
             <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
                 <label translate="true">CSS Styles</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\CssTextarea"/>
             </parameter>
         </parameters>
     </widget>
@@ -631,7 +631,7 @@
             </parameter>
             <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
                 <label translate="true">CSS Styles</label>
-                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\CssTextarea"/>
             </parameter>
         </parameters>
     </widget>
