@@ -129,4 +129,19 @@ class Banner extends ParentCallout
     {
         return $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
     }
+
+    /**
+     * Return the custom CSS that will be embedded
+     * within a template in a <style> tag.
+     *
+     * @return null|string
+     */
+    public function getCssStyles(): ?string
+    {
+        if (!$this->getData('css_styles')) {
+            return null;
+        }
+
+        return $this->getData('css_styles');
+    }
 }

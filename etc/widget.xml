@@ -465,6 +465,10 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
+                <label translate="true">CSS Styles</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
         </parameters>
     </widget>
     <widget id="widget_banner_product" class="Augustash\ContentWidgets\Block\Widget\Banner\Product">
@@ -546,6 +550,10 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
+                <label translate="true">CSS Styles</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
+            </parameter>
         </parameters>
     </widget>
     <widget id="widget_banner_custom" class="Augustash\ContentWidgets\Block\Widget\Banner\CustomBanner">
@@ -620,6 +628,10 @@
             <parameter name="href" xsi:type="text" visible="true" required="true" sort_order="80">
                 <label translate="true">Custom URL</label>
                 <description translate="true">The fully-qualified URL you want the customer to be directed to.</description>
+            </parameter>
+            <parameter name="css_styles" xsi:type="block" visible="true" required="false" sort_order="100">
+                <label translate="true">CSS Styles</label>
+                <block class="Augustash\ContentWidgets\Block\Adminhtml\Widget\Textarea"/>
             </parameter>
         </parameters>
     </widget>
