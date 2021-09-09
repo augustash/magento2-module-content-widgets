@@ -10,8 +10,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Widget\Model\Widget">
         <plugin name="content-widget-imagefix" type="Augustash\ContentWidgets\Plugin\FixImageChooserUrlPlugin" sortOrder="10" disabled="false"/>
-    </type>
-    <type name="Magento\Widget\Model\Widget">
         <plugin name="content-widget-escape-quotes" type="Augustash\ContentWidgets\Plugin\EscapeQuotesPlugin" sortOrder="20" disabled="false"/>
     </type>
 
